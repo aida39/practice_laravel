@@ -37,7 +37,6 @@ class TaskRequest extends FormRequest
             'name.required' => '登録者名を入力してください',
             'detail.required'=>'内容を入力してください',
             'deadline.date'=>'期限を指定してください',
-            'remark.required'=>'備考を入力してください',
         ];
     }
 }
