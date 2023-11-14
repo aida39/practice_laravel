@@ -4,6 +4,7 @@
       background-color: #85d854;
       color: white;
       padding: 5px 40px;
+      text-align:left;
     }
     tr:nth-child(odd) td{
       background-color: #e3f7df;
@@ -42,13 +43,31 @@
   .button:hover{
     background-color: #55c500;
 }
+  li{
+    color:red;
+    font-weight:bold;
+  }
+.label-required{
+    background-color:red;
+    padding:5px;
+    border-radius:5px;
+    font-size:13px;
+    margin-left:9px;
+  }
 </style>
 @section('title', 'タスクを編集')
 
 @section('content')
+@if (count($errors) > 0)
+<ul>
+  @foreach ($errors->all() as $error)
+  <li>{{$error}}</li>
+  @endforeach
+</ul>
+@endif
 <div class="button">
     <a href="/">一覧に戻る</a>
-</div> 
+</div>
 <form action="/edit" method="POST">
   <table>
     @csrf
@@ -57,12 +76,13 @@
         ID
       </th>
       <td>
-        <input type="text" name="id" value="{{$form->id}}">
+        {{$form->id}}
+        <input type="hidden" name="id" value="{{$form->id}}" >
       </td>
     </tr>
     <tr>
       <th>
-        登録者名
+        登録者名<span class="label-required">必須</span>
       </th>
       <td>
         <input type="text" name="name" value="{{$form->name}}">
@@ -70,7 +90,7 @@
     </tr>
     <tr>
       <th>
-        内容
+        内容<span class="label-required">必須</span>
       </th>
       <td>
         <input type="text" name="detail" value="{{$form->detail}}">
@@ -78,7 +98,7 @@
     </tr>
     <tr>
       <th>
-        期限
+        期限<span class="label-required">必須</span>
       </th>
       <td>
         <input type="date" name="deadline" value="{{$form->deadline}}">

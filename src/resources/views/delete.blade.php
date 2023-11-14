@@ -44,13 +44,18 @@
   .button:hover{
     background-color: #55c500;
 }
+p{
+  color:red;
+  font-weight:bold;
+}
 </style>
 @section('title', 'タスクを削除')
 
 @section('content')
+<p>以下の内容を削除します</p>
 <div class="button">
     <a href="/">一覧に戻る</a>
-</div> 
+</div>
 <table>
     <tr>
       <th>ID</th>

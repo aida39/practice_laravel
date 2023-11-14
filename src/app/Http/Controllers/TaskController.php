@@ -31,7 +31,7 @@ class TaskController extends Controller
         return view('edit', ['form' => $task]);
     }
 
-    public function update(Request $request)
+    public function update(TaskRequest $request)
     {
         $form = $request->all();
         unset($form['_token']);

@@ -1,9 +1,12 @@
 @extends('layouts.default')
 <style>
+
   th {
     background-color: #85d854;
     color: white;
     padding: 5px 40px;
+    text-align: left;
+
   }
   tr:nth-child(odd) td{
     background-color: #e3f7df;
@@ -49,6 +52,13 @@
     font-weight:bold;
   }
 
+.label-required{
+    background-color:red;
+    padding:5px;
+    border-radius:5px;
+    font-size:13px;
+    margin-left:9px;
+  }
 </style>
 @section('title', 'タスクを登録')
 
@@ -68,15 +78,15 @@
   <table>
   @csrf
     <tr>
-      <th>登録者名</th>
+      <th>登録者名<span class="label-required">必須</span></th>
       <td><input type="text" name="name"></td>
     </tr>
     <tr>
-      <th>内容</th>
+      <th>内容<span class="label-required">必須</span></th>
       <td><input type="text" name="detail"></td>
     </tr>
     <tr>
-      <th>期限</th>
+      <th>期限<span class="label-required">必須</span></th>
       <td><input type="date" name="deadline"></td>
     </tr>
     <tr>
